@@ -1,4 +1,4 @@
-@props(['width' => 'full'])
+@props(['width' => '7xl'])
 
 @php
 $Width = 'max-w-7xl';

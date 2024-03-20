@@ -9,15 +9,11 @@ use App\Models\Subdistrict;
 new class extends Component {
 
     public $set_id;
-    public $code;
     public $name;
     public $address;
-    public $country_id;
-    public $subdistrict_id;
-    public $zip;
+    public $email;
     public $phone;
-    public $pic_name;
-    public $pic_mobile;
+    public $mobile;
     public $status;
 
     public function mount(Request $request)

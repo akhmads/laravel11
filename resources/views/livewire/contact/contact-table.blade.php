@@ -72,7 +72,7 @@ new class extends Component {
         <x-hyco.loading />
     </div>
 
-    <x-master-section>
+    <x-section>
 
         <x-hyco.table>
             <x-slot name="headingLeft">
@@ -135,7 +135,7 @@ new class extends Component {
             </x-slot>
         </x-hyco.table>
 
-    </x-master-section>
+    </x-section>
 
     <x-hyco.confirmation-modal wire:model.live="confirmDeletion">
         <x-slot name="title">
