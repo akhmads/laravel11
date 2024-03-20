@@ -34,6 +34,9 @@ new class extends Component
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     @can('admin')
+                    <x-nav-link :href="route('master.contact')" :active="request()->routeIs('master.contact*')" wire:navigate>
+                        {{ __('Contact') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('user.admin')" :active="request()->routeIs('user*')" wire:navigate>
                         {{ __('Users') }}
                     </x-nav-link>
@@ -90,6 +93,9 @@ new class extends Component
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             @can('admin')
+            <x-responsive-nav-link :href="route('master.contact')" :active="request()->routeIs('master.contact*')" wire:navigate>
+                {{ __('Contacts') }}
+            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('user.admin')" :active="request()->routeIs('user*')" wire:navigate>
                 {{ __('Users') }}
             </x-responsive-nav-link>

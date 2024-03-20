@@ -22,6 +22,9 @@ Route::middleware(['auth','can:admin'])->group(function () {
     Volt::route('/user-member',         'member/member-table')->name('user.member');
     Volt::route('/user-member/{id}',    'member/member-form')->name('user.member.form');
 
+    Volt::route('/contact',             'contact/contact-table')->name('master.contact');
+    Volt::route('/contact/{id}',        'contact/contact-form')->name('master.contact.form');
+
     Route::get('/sample/counter',       \App\Livewire\Counter::class)->name('sample.counter');
     Volt::route('/sample/volt-counter', 'sample/counter')->name('sample.volt-counter');
 
