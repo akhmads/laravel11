@@ -9,7 +9,7 @@ new class extends Component {
     use WithPagination;
 
     public $perPage = 10;
-    public $sortColumn = "name";
+    public $sortColumn = "contact.name";
     public $sortDir = "asc";
     public $sortLink = [];
     public $searchKeyword = '';
