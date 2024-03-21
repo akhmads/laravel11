@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('date');
             $table->foreignId('contact_id')->index();
             $table->string('note');
-            $table->unsignedDecimal('total',12,2);
+            $table->decimal('total',12,2);
             $table->timestamps();
         });
     }

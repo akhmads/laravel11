@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('item', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->index();
+            $table->enum('status', ['active','inactive'])->index()->default('active');
             $table->timestamps();
         });
     }

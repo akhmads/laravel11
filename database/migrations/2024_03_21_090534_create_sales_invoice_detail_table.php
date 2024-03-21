@@ -16,8 +16,8 @@ return new class extends Migration
             $table->uuid('sales_invoice_id')->index();
             $table->foreignId('item_id')->index();
             $table->integer('qty');
-            $table->unsignedDecimal('price',12,2);
-            $table->unsignedDecimal('subtotal',12,2);
+            $table->decimal('price',12,2);
+            $table->decimal('subtotal',12,2);
             $table->timestamps();
         });
     }
