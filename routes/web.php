@@ -30,4 +30,6 @@ Route::middleware(['auth','can:admin'])->group(function () {
     Route::get('/sample/counter',       \App\Livewire\Counter::class)->name('sample.counter');
     Volt::route('/sample/volt-counter', 'sample/counter')->name('sample.volt-counter');
 
+    Route::get('/tenant/create', [\App\Http\Controllers\TenantSetupController::class, 'create']);
+
 });
