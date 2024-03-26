@@ -6,7 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class Tenant {
+class PrefixBase {
 
     public static string $id;
 
@@ -23,13 +23,13 @@ class Tenant {
                 'url' => config("database.connections.$default.url"),
                 'host' => config("database.connections.$default.host"),
                 'port' => config("database.connections.$default.port"),
-                'database' => $connectionId,
+                'database' => config("database.connections.$default.database"),
                 'username' => config("database.connections.$default.username"),
                 'password' => config("database.connections.$default.password"),
                 'unix_socket' => config("database.connections.$default.unix_socket"),
                 'charset' => config("database.connections.$default.charset"),
                 'collation' => config("database.connections.$default.collation"),
-                'prefix' => '',
+                'prefix' => $connectionId . '_',
                 'prefix_indexes' => true,
                 'strict' => true,
                 'engine' => null,
@@ -48,8 +48,6 @@ class Tenant {
     {
         self::init();
 
-        DB::statement("CREATE DATABASE IF NOT EXISTS " . self::$id);
-
         self::create_test_table();
     }
 
@@ -58,8 +56,6 @@ class Tenant {
         self::init();
 
         Schema::connection(self::$id)->dropIfExists('test');
-
-        DB::statement("DROP DATABASE IF EXISTS " . self::$id);
     }
 
     public static function create_test_table()

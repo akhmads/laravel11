@@ -31,5 +31,6 @@ Route::middleware(['auth','can:admin'])->group(function () {
     Volt::route('/sample/volt-counter', 'sample/counter')->name('sample.volt-counter');
 
     Route::get('/tenant/create', [\App\Http\Controllers\TenantSetupController::class, 'create']);
+    Route::get('/tenant/drop', [\App\Http\Controllers\TenantSetupController::class, 'drop']);
 
 });
