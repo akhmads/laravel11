@@ -2,7 +2,7 @@
 
 use Livewire\Volt\Component;
 use Livewire\WithPagination;
-use App\Models\Item;
+use App\Models\SalesInvoice;
 
 new class extends Component {
     use WithPagination;
@@ -17,7 +17,7 @@ new class extends Component {
 
     public function with(): array
     {
-        $item = Item::orderby($this->sortColumn,$this->sortDir)
+        $salesInvoice = SalesInvoice::orderby($this->sortColumn,$this->sortDir)
             ->where(function($query){
                 $query->whereLike('name', $this->searchKeyword);
             });
@@ -51,7 +51,7 @@ new class extends Component {
 
     public function destroy()
     {
-        Item::destroy($this->set_id);
+        SalesInvoice::destroy($this->set_id);
         $this->confirmDeletion = false;
         session()->flash('success', __('Item has been deleted'));
         return redirect()->route('master.item');
