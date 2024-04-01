@@ -102,9 +102,6 @@ new class extends Component {
                 <td class="px-4 py-3 text-gray-600">
                     <x-hyco.table-active :status="$item->status"></x-hyco.table-active>
                 </td>
-                {{-- <td class="px-4 py-3 text-gray-600">
-                    {{ ($item->updated_at)->format('d/m/Y, H:i') }}
-                </td> --}}
                 <td class="h-px w-px whitespace-nowrap px-4 py-3">
                     <a href="{{ route('master.item.form',$item->id) }}" wire:navigate class="text-xs text-white bg-blue-600 px-3 py-1 rounded-lg">Edit</a>
                     <a href="javascript:void(0)" wire:click="delete({{ $item->id }})" class="text-xs bg-red-600 text-white px-3 py-1 rounded-lg">Del</a>
