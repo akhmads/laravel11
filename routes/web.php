@@ -33,4 +33,6 @@ Route::middleware(['auth','can:admin'])->group(function () {
     Route::get('/tenant/create', [\App\Http\Controllers\TenantSetupController::class, 'create']);
     Route::get('/tenant/drop', [\App\Http\Controllers\TenantSetupController::class, 'drop']);
 
+    Route::get('play', [\App\Http\Controllers\PlayController::class, 'index']);
+
 });
