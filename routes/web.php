@@ -27,12 +27,9 @@ Route::middleware(['auth','can:admin'])->group(function () {
     Volt::route('/item',                'item/item-table')->name('master.item');
     Volt::route('/item/{id}',           'item/item-form')->name('master.item.form');
 
-    Route::get('/sample/counter',       \App\Livewire\Counter::class)->name('sample.counter');
-    Volt::route('/sample/volt-counter', 'sample/counter')->name('sample.volt-counter');
-
     Route::get('/tenant/create', [\App\Http\Controllers\TenantSetupController::class, 'create']);
     Route::get('/tenant/drop', [\App\Http\Controllers\TenantSetupController::class, 'drop']);
 
-    Route::get('play', [\App\Http\Controllers\PlayController::class, 'index']);
-
+    //Route::get('play', [\App\Http\Controllers\PlayController::class, 'index']);
+    Volt::route('/play', 'play.play');
 });
