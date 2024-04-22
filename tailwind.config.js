@@ -8,9 +8,13 @@ export default {
         "./storage/framework/views/*.php",
         "./resources/views/**/*.blade.php",
 
-        // Hyco
+        // Hyco Prod
         "./vendor/akhmads/hyco/src/View/Components/**/*.php",
         "./vendor/akhmads/hyco/src/resources/views/**/*.php",
+
+        // Hyco Dev
+        "./packages/akhmads/hyco/src/View/Components/**/*.php",
+        "./packages/akhmads/hyco/src/resources/views/**/*.php",
     ],
 
     theme: {

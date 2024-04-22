@@ -36,7 +36,7 @@ new class extends Component {
                     <x-hc-input label="Name" wire:model="name" />
 
                     <div class="pt-5">
-                        <x-hc-button type="button" wire:click="store">Save</x-hc-button>
+                        <x-hc-button type="button" wire:click="store" color="" icon="o-check" spinner="store">Save</x-hc-button>
                     </div>
 
                 </div>
