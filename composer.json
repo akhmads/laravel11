@@ -30,7 +30,8 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
-            "Akhmads\\Hyco\\": "packages/akhmads/hyco/src/"
+            "Akhmads\\Hyco\\": "packages/akhmads/hyco/src/",
+            "Akhmads\\HycoSample\\": "packages/akhmads/hyco-sample/src/"
         }
     },
     "autoload-dev": {

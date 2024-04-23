@@ -47,6 +47,11 @@ class User extends Authenticatable
         ];
     }
 
+    public function getFullNameAttribute()
+    {
+        return $this->attributes['name'] .'_'. $this->attributes['email'];
+    }
+
     public function scopeAdmin($query)
     {
         return $query->where($this->getTable() . '.role', 'admin');

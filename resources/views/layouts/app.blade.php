@@ -38,5 +38,7 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <x-hc-toast />
     </body>
 </html>

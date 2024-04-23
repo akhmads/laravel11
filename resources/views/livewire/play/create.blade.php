@@ -2,19 +2,29 @@
 
 use Livewire\Volt\Component;
 use Livewire\Attributes\Rule;
-use Livewire\WithFileUploads;
-use Illuminate\Support\Carbon;
 use Akhmads\Hyco\Traits\Toast;
-use App\Models\Item;
+use App\Models\Example;
 
 new class extends Component {
     use Toast;
 
     #[Rule('required')]
-    public string $name = 'John Doe';
+    public ?string $name;
 
-    #[Rule('required')]
-    public string $user_id = '1';
+    #[Rule('nullable|email|unique:example')]
+    public ?string $email;
+
+    #[Rule('nullable')]
+    public ?string $date;
+
+    #[Rule('nullable')]
+    public ?string $address;
+
+    #[Rule('nullable')]
+    public ?string $price;
+
+    #[Rule('nullable')]
+    public string $user_id;
 
     public function with(): array
     {
@@ -25,13 +35,15 @@ new class extends Component {
     {
         $data = $this->validate();
 
-        $this->success('/play', 'Saved');
+        Example::create($data);
+
+        $this->success('/play', 'Example has been created');
     }
 } ?>
 <div>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Playground') }}
+            {{ __('Example') }}
         </h2>
     </x-slot>
 
@@ -41,6 +53,10 @@ new class extends Component {
                 <div class="p-6 text-gray-900 dark:text-gray-100">
 
                     <x-hc-input label="Name" wire:model="name" />
+                    <x-hc-input label="Email" wire:model="email" type="email" />
+                    <x-hc-input label="Date" wire:model="date" type="date" />
+                    <x-hc-textarea label="Address" wire:model="address" />
+                    <x-hc-input label="Price" wire:model="price" />
                     <x-hc-select label="User" wire:model="user_id" :options="\App\Models\User::get()->pluck('name','id')" />
 
                     <div class="pt-5">
